@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import style from './Home.scss'
 
 import ProgressBanner from '../../components/ProgressBanner'
+import Button from '../../components/Button'
 
 export class Home extends Component {
   constructor(props) {
@@ -11,32 +12,27 @@ export class Home extends Component {
     };
   }
   componentDidMount()
-  {
-    this.refs.homebox.style.setProperty('--randomtime', (Math.random()+0.1) +'s');
-    
+  { 
     setTimeout(() => {
       this.setState({
         pageonload:true,
       })
-    }, 3000);
-    
-    
+    }, 1000);
   }
   render() {
     return (
       <div>
         <ProgressBanner loaded={this.state.pageonload} />
-        
-        <div className={style.HomeBox} ref='homebox'>
-            <span>H</span>
-            <span>E</span>
-            <span>L</span>
-            <span>L</span>
-            <span>W</span>
-            <span>O</span>
-            <span>R</span>
-            <span>L</span>
-            <span>D</span>
+
+        <div className={style.HomeBox}>
+          <div className={style.bannerBox}>
+
+            <Button BtnText='选择会议'/>
+
+          </div>
+          <div className={style.HomeIndex}>
+            {this.props.children}
+          </div>
         </div>
 
       </div>

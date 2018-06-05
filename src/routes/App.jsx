@@ -14,6 +14,9 @@ import store from '../redux/store';
 import NotFound from './notFound'
 
 import Home from './Home'
+import homeIndex from './Home/childPage/index'
+import homeList from './Home/childPage/list'
+import homeLogin from './Home/childPage/login'
 
 //component
 import AnimateBackground from '../components/AnimateBackground'
@@ -71,13 +74,16 @@ class App extends React.Component {
         <Router history={hashHistory}>
           {/* 首页 */}
           <Route path='/' component={Home} > 
-            {/* <Route path="/login" component={Login}/> */}
+            <IndexRoute component={homeIndex}/>  
+            <Route path="/actlist" component={homeList} />
+            <Route path="/login" component={homeLogin} />            
           </Route>
+
           {/* 404页面 */}
           <Route path="*" component={NotFound}/> 
 
         </Router>
-        <AnimateBackground />
+        {/* <AnimateBackground /> */}
       </div>
       
     )

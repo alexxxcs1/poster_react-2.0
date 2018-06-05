@@ -2,8 +2,10 @@ import axios from 'axios'
 import { hashHistory } from 'react-router'
 
 import demoPost from './demo'
+import getActListPost from './getActList'
 
-const host = 'http://www.explame.com/api/'
+const host = 'http://wechat.crnonline.org/index.php/Api/Poster/'
+const posthost = 'http://poster.crnonline.org/index.php/Api/Poster/'
 
 // 实例化 ajax请求对象
 const ajaxinstance = axios.create({
@@ -52,6 +54,7 @@ ajaxinstance
  */
 const API = {
   ...demoPost(ajaxinstance),
+  ...getActListPost(ajaxinstance)
 }
 
 export default API
